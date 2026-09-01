@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A local, configurable Markdown to PDF workspace.">
+  <title>Markdown PDF Studio</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">M↓</span>
+      <span><strong>Markdown PDF</strong><small>Studio</small></span>
+    </div>
+    <div class="top-actions">
+      <span class="status" id="status" role="status"><i></i> Ready</span>
+      <button class="button primary" id="exportButton" type="button">Export PDF</button>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <aside class="settings" aria-label="PDF settings">
+      <div class="intro">
+        <p class="eyebrow">Document setup</p>
+        <h1>Shape the page.</h1>
+        <p>Load Markdown, tune the essentials, then export. Everything stays on this computer.</p>
+      </div>
+
+      <label class="file-drop" for="fileInput">
+        <input id="fileInput" type="file" accept=".md,.markdown,text/markdown,text/plain">
+        <span class="file-icon" aria-hidden="true">↥</span>
+        <span><strong id="fileLabel">Choose a Markdown file</strong><small>or start typing in the editor</small></span>
+      </label>
+
+      <details open>
+        <summary>Page</summary>
+        <div class="control-grid">
+          <label>Size<select id="pageSize"><option>A4</option><option>Letter</option><option>Legal</option><option>A3</option></select></label>
+          <label>Orientation<select id="orientation"><option value="portrait">Portrait</option><option value="landscape">Landscape</option></select></label>
+          <label class="wide">Margins <span class="value" id="marginValue">20 mm</span><input id="margin" type="range" min="8" max="40" value="20"></label>
+        </div>
+      </details>
+
+      <details open>
+        <summary>Typography</summary>
+        <div class="control-grid">
+          <label class="wide">Body font
+            <select id="bodyFont" aria-describedby="fontHint">
+              <option value="Aptos, Arial, sans-serif" selected>Aptos</option>
+              <option value="Arial, Helvetica, sans-serif">Arial</option>
+              <option value="Calibri, Arial, sans-serif">Calibri</option>
+              <option value="Inter, Aptos, Arial, sans-serif">Inter</option>
+              <option value="Georgia, 'Times New Roman', serif">Georgia</option>
+              <option value="'Times New Roman', Times, serif">Times New Roman</option>
+              <option value="Verdana, Arial, sans-serif">Verdana</option>
+            </select>
+          </label>
+          <label class="wide">Heading font
+            <select id="headingFont">
+              <option value="'Aptos Display', Aptos, Arial, sans-serif" selected>Aptos Display</option>
+              <option value="Arial, Helvetica, sans-serif">Arial</option>
+              <option value="Calibri, Arial, sans-serif">Calibri</option>
+              <option value="Inter, Aptos, Arial, sans-serif">Inter</option>
+              <option value="Georgia, 'Times New Roman', serif">Georgia</option>
+              <option value="'Times New Roman', Times, serif">Times New Roman</option>
+              <option value="Verdana, Arial, sans-serif">Verdana</option>
+            </select>
+          </label>
+          <div class="font-discovery wide">
+            <p class="field-hint" id="fontHint">Installed system fonts are loaded automatically.</p>
+            <input id="fontFiles" class="visually-hidden" type="file" accept=".otf,.ttf,.woff,.woff2,font/otf,font/ttf,font/woff,font/woff2" multiple>
+            <label class="text-button" for="fontFiles">Add font files</label>
+          </div>
+          <label>Text size<select id="fontSize"><option value="10pt">10 pt</option><option value="11pt" selected>11 pt</option><option value="12pt">12 pt</option><option value="13pt">13 pt</option></select></label>
+          <label>Line height<select id="lineHeight"><option>1.4</option><option selected>1.55</option><option>1.7</option><option>1.85</option></select></label>
+          <label class="wide">Paragraph spacing <span class="value" id="paragraphSpacingValue">10 px</span><input id="paragraphSpacing" type="range" min="0" max="32" value="10"></label>
+          <label class="wide">Heading space before <span class="value" id="headingBeforeValue">22 px</span><input id="headingBefore" type="range" min="0" max="56" value="22"></label>
+          <label class="wide">Heading space after <span class="value" id="headingAfterValue">9 px</span><input id="headingAfter" type="range" min="0" max="32" value="9"></label>
+        </div>
+      </details>
+
+      <details open>
+        <summary>Colour</summary>
+        <div class="swatches">
+          <label><input id="accent" type="color" value="#7c3aed"><span>Accent</span></label>
+          <label><input id="textColor" type="color" value="#1f2937"><span>Text</span></label>
+          <label><input id="headingColor" type="color" value="#0f172a"><span>Headings</span></label>
+          <label><input id="codeBackground" type="color" value="#111827"><span>Code</span></label>
+        </div>
+      </details>
+
+      <details>
+        <summary>Code & advanced</summary>
+        <div class="control-grid">
+          <label class="wide">Code font
+            <select id="codeFont">
+              <option value="'Cascadia Code', Consolas, monospace" selected>Cascadia Code</option>
+              <option value="Consolas, monospace">Consolas</option>
+              <option value="'Courier New', monospace">Courier New</option>
+            </select>
+          </label>
+          <label>Code theme<select id="codeTheme"><option value="github-dark">Dark</option><option value="github-light">Light</option></select></label>
+          <label>Code size<select id="codeSize"><option value="8pt">8 pt</option><option value="9pt" selected>9 pt</option><option value="10pt">10 pt</option></select></label>
+          <label class="check"><input id="lineNumbers" type="checkbox"><span>Line numbers</span></label>
+          <label class="check"><input id="codeWrap" type="checkbox" checked><span>Wrap long code</span></label>
+          <label class="wide">Custom CSS<textarea id="customCss" rows="5" placeholder="h1 { letter-spacing: -0.03em; }"></textarea></label>
+        </div>
+      </details>
+    </aside>
+
+    <section class="canvas">
+      <div class="canvas-tabs" role="tablist" aria-label="Document view">
+        <button class="tab active" id="previewTab" role="tab" aria-selected="true">Preview</button>
+        <button class="tab" id="editorTab" role="tab" aria-selected="false">Markdown</button>
+        <span class="page-chip" id="pageChip">Live A4 portrait preview</span>
+      </div>
+      <div class="preview-wrap" id="previewPanel">
+        <iframe id="preview" title="PDF preview"></iframe>
+      </div>
+      <div class="editor-wrap hidden" id="editorPanel">
+        <textarea id="markdown" spellcheck="false" aria-label="Markdown editor"># A document worth reading
+
+This is a **live preview**. Change the controls on the left and the page responds.
+
+> Keep the structure in Markdown. Let the theme handle the polish.
+
+## A small code example
+
+```javascript
+const message = "Hello, PDF";
+console.log(message);
+```
+
+## Quick checklist
+
+- Choose a page size and margins
+- Set your fonts and colours
+- Export a crisp, selectable PDF
+</textarea>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Markdown PDF Studio Bookmark</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { min-height: 100vh; margin: 0; display: grid; place-items: center; padding: 24px; color: #172033; background: #f2f3f7; font-family: Aptos, "Segoe UI", sans-serif; }
+    main { width: min(560px, 100%); padding: 42px; border: 1px solid #dfe3ea; border-radius: 18px; background: white; box-shadow: 0 20px 50px rgb(23 32 51 / 12%); }
+    .mark { display: grid; place-items: center; width: 44px; height: 44px; margin-bottom: 24px; border-radius: 12px; color: white; background: #172033; font-weight: 800; }
+    h1 { margin: 0 0 12px; font-size: 28px; letter-spacing: -.035em; }
+    p { margin: 0 0 22px; color: #687184; line-height: 1.6; }
+    a { display: inline-block; padding: 12px 18px; border-radius: 10px; color: white; background: #6d4aff; text-decoration: none; font-weight: 800; }
+    code { padding: 3px 6px; border-radius: 5px; background: #f0edff; color: #5232d6; }
+    ol { padding-left: 20px; color: #40495c; line-height: 1.7; }
+    small { display: block; margin-top: 24px; color: #8a91a0; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="mark">M↓</div>
+    <h1>Your one-click launcher is ready.</h1>
+    <p>Firefox treats this protocol as a search when it is typed into the address bar. Use it as a real bookmark link instead.</p>
+    <a href="mdpdfstudio://start" title="Drag me to the Firefox Bookmarks Toolbar">Start Markdown PDF Studio</a>
+    <ol>
+      <li>In Firefox, press <strong>Ctrl+Shift+B</strong> to show the Bookmarks Toolbar.</li>
+      <li>Drag the purple <strong>Start Markdown PDF Studio</strong> link onto that toolbar.</li>
+      <li>Click the new bookmark and allow Firefox to open the Windows launcher.</li>
+    </ol>
+    <small>Do not paste <code>mdpdfstudio://start</code> into Firefox's address bar; Firefox will search for it.</small>
+  </main>
+</body>
+</html>

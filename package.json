@@ -1,0 +1,44 @@
+{
+  "name": "markdown-pdf-studio",
+  "version": "1.0.0",
+  "description": "A local Markdown-to-PDF CLI and visual editor with typography, layout, colour, code, and CSS controls.",
+  "type": "module",
+  "license": "MIT",
+  "keywords": [
+    "markdown",
+    "pdf",
+    "converter",
+    "editor",
+    "playwright"
+  ],
+  "files": [
+    "src/",
+    "ui/",
+    "examples/",
+    "*.bat",
+    "*.ps1",
+    "*.html",
+    "*.url",
+    "README.md",
+    "LICENSE"
+  ],
+  "bin": {
+    "mdpdf": "src/cli.mjs"
+  },
+  "scripts": {
+    "start": "node src/server.mjs",
+    "convert": "node src/cli.mjs",
+    "demo": "node src/cli.mjs examples/demo.md -o output/pdf/demo.pdf -c examples/config.json --css examples/custom.css",
+    "ui": "node src/server.mjs",
+    "check": "node --check src/cli.mjs && node --check src/server.mjs && node --check ui/app.js"
+  },
+  "packageManager": "pnpm@11.19.0",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "highlight.js": "^11.11.1",
+    "marked": "^15.0.12",
+    "playwright-core": "^1.51.1"
+  }
+}

@@ -1,0 +1,4 @@
+/* This file is loaded last, so it can override every generated style. */
+h1 { letter-spacing: -0.02em; }
+h2 { color: var(--accent); }
+table { box-shadow: 0 2px 10px rgb(15 23 42 / 8%); }

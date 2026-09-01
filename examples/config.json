@@ -1,0 +1,43 @@
+{
+  "page": {
+    "size": "A4",
+    "landscape": false,
+    "margin": {
+      "top": "22mm",
+      "right": "20mm",
+      "bottom": "24mm",
+      "left": "20mm"
+    }
+  },
+  "fonts": {
+    "body": "Georgia, serif",
+    "heading": "Aptos Display, Arial, sans-serif",
+    "code": "Cascadia Code, Consolas, monospace",
+    "size": "11pt",
+    "lineHeight": 1.55
+  },
+  "colors": {
+    "text": "#243047",
+    "heading": "#172554",
+    "muted": "#64748b",
+    "link": "#1d4ed8",
+    "accent": "#7c3aed",
+    "border": "#cbd5e1",
+    "surface": "#f8fafc",
+    "codeBackground": "#111827",
+    "codeText": "#e5e7eb",
+    "quoteBackground": "#f5f3ff"
+  },
+  "code": {
+    "theme": "github-dark",
+    "fontSize": "8.8pt",
+    "lineNumbers": true,
+    "wrap": true
+  },
+  "document": {
+    "title": "Markdown PDF Demo",
+    "header": "<span>Custom Markdown PDF</span><span></span>",
+    "footer": "<span>Generated locally</span><span>Page <span class='pageNumber'></span> of <span class='totalPages'></span></span>",
+    "printBackground": true
+  }
+}

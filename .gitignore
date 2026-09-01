@@ -1,0 +1,11 @@
+node_modules/
+.pnpm-store/
+output/
+tmp/
+coverage/
+.env
+.env.*
+*.log
+*.pdf
+.DS_Store
+Thumbs.db
